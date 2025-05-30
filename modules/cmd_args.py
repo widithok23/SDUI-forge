@@ -148,3 +148,9 @@ parser.add_argument(
     help="Path to directory with annotator model directories",
     default=None,
 )
+parser.add_argument(
+    "--outputs-dir",
+    type=Path,
+    help="Path to outputs directory",
+    default=default_outputs_dir,
+)
