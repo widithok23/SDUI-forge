@@ -34,5 +34,5 @@ models_path = cmd_opts_pre.models_dir if cmd_opts_pre.models_dir else os.path.jo
 extensions_dir = os.path.join(data_path, "extensions")
 extensions_builtin_dir = os.path.join(script_path, "extensions-builtin")
 config_states_dir = os.path.join(script_path, "config_states")
-default_output_dir = cmd_opts_pre.outputs_dir if cmd_opts_pre.models_dir else os.path.join(data_path, "outputs")
+default_output_dir = cmd_opts_pre.outputs_dir if cmd_opts_pre.outputss_dir else os.path.join(data_path, "outputs")
 roboto_ttf_file = os.path.join(modules_path, 'Roboto-Regular.ttf')
