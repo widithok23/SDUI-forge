@@ -525,7 +525,6 @@ def configure_forge_reference_checkout(a1111_home: Path):
         # Ref A1111 need to have sd-webui-controlnet installed.
         ModelRef(arg_name="--controlnet-dir", relative_path="models/ControlNet"),
         ModelRef(arg_name="--controlnet-preprocessor-models-dir", relative_path="extensions/sd-webui-controlnet/annotator/downloads"),
-        ModelRef(arg_name="--outputs-dir", relative_path="outputs")
     ]
 
     for ref in refs:
