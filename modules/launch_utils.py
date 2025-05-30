@@ -15,7 +15,7 @@ from typing import NamedTuple
 from pathlib import Path
 
 from modules import cmd_args, errors
-from modules.paths_internal import script_path, extensions_dir, extensions_builtin_dir
+from modules.paths_internal import script_path, extensions_dir, extensions_builtin_dir, default_output_dir
 from modules.timer import startup_timer
 from modules import logging_config
 from modules_forge import forge_version
@@ -525,6 +525,7 @@ def configure_forge_reference_checkout(a1111_home: Path):
         # Ref A1111 need to have sd-webui-controlnet installed.
         ModelRef(arg_name="--controlnet-dir", relative_path="models/ControlNet"),
         ModelRef(arg_name="--controlnet-preprocessor-models-dir", relative_path="extensions/sd-webui-controlnet/annotator/downloads"),
+        ModelRef(arg_name="--outputs-dir", relative_path="outputs")
     ]
 
     for ref in refs:
