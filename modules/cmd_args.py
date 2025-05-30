@@ -152,5 +152,5 @@ parser.add_argument(
     "--outputs-dir",
     type=Path,
     help="Path to outputs directory",
-    default=default_outputs_dir,
+    default=default_output_dir,
 )
