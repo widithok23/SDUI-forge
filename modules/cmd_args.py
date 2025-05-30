@@ -1,7 +1,7 @@
 import argparse
 import json
 import os
-from modules.paths_internal import normalized_filepath, models_path, script_path, data_path, extensions_dir, extensions_builtin_dir, sd_default_config, sd_model_file  # noqa: F401
+from modules.paths_internal import normalized_filepath, models_path, script_path, data_path, extensions_dir, extensions_builtin_dir, sd_default_config, sd_model_file, default_output_dir  # noqa: F401
 from pathlib import Path
 from backend.args import parser
 
