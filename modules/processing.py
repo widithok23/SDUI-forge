@@ -36,7 +36,7 @@ from modules_forge.utils import apply_circular_forge
 from modules_forge import main_entry
 from backend import memory_management
 from backend.modules.k_prediction import rescale_zero_terminal_snr_sigmas
-from modules.path_internal import default_params_dir
+from modules.paths_internal import default_params_dir
 
 # some of those options should not be changed at all because they would break the model, so I removed them from options.
 opt_C = 4
