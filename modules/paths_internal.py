@@ -26,6 +26,7 @@ parser_pre = argparse.ArgumentParser(add_help=False)
 parser_pre.add_argument("--data-dir", type=str, default=os.path.dirname(modules_path), help="base path where all user data is stored", )
 parser_pre.add_argument("--models-dir", type=str, default=None, help="base path where models are stored; overrides --data-dir", )
 parser_pre.add_argument("--outputs-dir", type=str, default=None, help="base path where outputs are stored; overrides --data-dir", )
+parser_pre.add_argument("--params-dir", type=str, default=None, help="base path where params.txt are stored; overrides --data-dir", )
 cmd_opts_pre = parser_pre.parse_known_args()[0]
 
 data_path = cmd_opts_pre.data_dir
@@ -35,4 +36,5 @@ extensions_dir = os.path.join(data_path, "extensions")
 extensions_builtin_dir = os.path.join(script_path, "extensions-builtin")
 config_states_dir = os.path.join(script_path, "config_states")
 default_output_dir = cmd_opts_pre.outputs_dir if cmd_opts_pre.outputs_dir else os.path.join(data_path, "outputs")
+default_params_dir = cmd_opts_pre.params_dir if cmd_opts_pre.params_dir else data_path
 roboto_ttf_file = os.path.join(modules_path, 'Roboto-Regular.ttf')
