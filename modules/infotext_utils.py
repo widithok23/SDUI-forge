@@ -10,7 +10,7 @@ import gradio as gr
 from modules.paths import data_path
 from modules import shared, ui_tempdir, script_callbacks, processing, infotext_versions, images, prompt_parser, errors
 from PIL import Image
-from modules.path_internal import default_params_dir
+from modules.paths_internal import default_params_dir
 
 from modules_forge import main_entry
 
