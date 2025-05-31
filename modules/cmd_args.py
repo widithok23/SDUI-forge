@@ -154,3 +154,9 @@ parser.add_argument(
     help="Path to outputs directory",
     default=default_output_dir,
 )
+parser.add_argument(
+    "--params-dir",
+    type=Path,
+    help="Path to params directory",
+    default=data_path,
+)
