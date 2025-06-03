@@ -52,7 +52,8 @@ def check_requirements(requirements_file="requirements_versions.txt"):
 
 if __name__ == "__main__":
     if check_requirements():
-        print("Semua requirements dalam requirements_versions.txt sudah terpenuhi. Melewati instalasi.")
+        return True
     else:
-        print("Beberapa requirements dalam requirements_versions.txt tidak terpenuhi atau versi tidak sesuai. Anda mungkin perlu menjalankan 'pip install -r requirements_versions.txt'.")
+        print("Beberapa requirements tidak terpenuhi atau versi tidak sesuai. Anda mungkin perlu menjalankan 'pip install -r requirements.txt'.")
+        return False
 
