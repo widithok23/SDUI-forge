@@ -15,7 +15,7 @@ def get_installed_packages():
     except subprocess.CalledProcessError:
         return {}  # Mengembalikan dictionary kosong jika ada error
 
-def check_requirements(requirements_file="requirements.txt"):
+def check_requirements(requirements_file="requirements_versions.txt"):
     """
     Mengecek apakah semua requirement dalam file sudah terinstal dengan versi yang sesuai.
     Mengembalikan True jika semua sesuai, False jika ada yang tidak sesuai atau tidak terinstal.
