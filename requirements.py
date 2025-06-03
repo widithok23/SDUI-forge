@@ -16,7 +16,7 @@ def get_installed_packages():
         print(f"Error menjalankan pip freeze: {e}")
     return packages
 
-def check_requirements(requirements_file="requirements.txt"):
+def check_requirements(requirements_file="requirements_versions.txt"):
     """
     Mengecek apakah semua requirement dalam file sudah terinstal dengan versi yang sesuai.
     Mengembalikan True jika semua sesuai, False jika ada yang tidak sesuai atau tidak terinstal.
@@ -52,6 +52,7 @@ def check_requirements(requirements_file="requirements.txt"):
 
 if __name__ == "__main__":
     if check_requirements():
-        print("Semua requirements sudah terpenuhi. Melewati instalasi.")
+        print("Semua requirements dalam requirements_versions.txt sudah terpenuhi. Melewati instalasi.")
     else:
-        print("Beberapa requirements tidak terpenuhi atau versi tidak sesuai. Anda mungkin perlu menjalankan 'pip install -r requirements.txt'.")
+        print("Beberapa requirements dalam requirements_versions.txt tidak terpenuhi atau versi tidak sesuai. Anda mungkin perlu menjalankan 'pip install -r requirements_versions.txt'.")
+
