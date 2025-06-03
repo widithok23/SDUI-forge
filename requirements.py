@@ -12,9 +12,8 @@ def get_installed_packages():
             if '==' in line:
                 name, version = line.split('==')
                 packages[name.lower()] = Version(version)
-    except subprocess.CalledProcessError as e:
-        print(f"Error menjalankan pip freeze: {e}")
-    return packages
+    except subprocess.CalledProcessError:
+        return {}  # Mengembalikan dictionary kosong jika ada error
 
 def check_requirements(requirements_file="requirements_versions.txt"):
     """
@@ -22,7 +21,6 @@ def check_requirements(requirements_file="requirements_versions.txt"):
     Mengembalikan True jika semua sesuai, False jika ada yang tidak sesuai atau tidak terinstal.
     """
     installed_packages = get_installed_packages()
-    needs_install = False
     try:
         with open(requirements_file, 'r') as f:
             for line in f:
@@ -33,26 +31,16 @@ def check_requirements(requirements_file="requirements_versions.txt"):
                         package_name = req.name.lower()
                         required_specifier = req.specifier
 
-                        if package_name in installed_packages:
-                            installed_version = installed_packages[package_name]
-                            if not required_specifier.contains(installed_version):
-                                print(f"Versi tidak sesuai: {package_name} (terinstal: {installed_version}, dibutuhkan: {required_specifier})")
-                                needs_install = True
-                        else:
-                            print(f"Paket belum terinstal: {package_name} ({required_specifier})")
-                            needs_install = True
-                    except Exception as e:
-                        print(f"Gagal memproses baris '{line}' di {requirements_file}: {e}")
-                        needs_install = True
+                        if package_name not in installed_packages or not required_specifier.contains(installed_packages[package_name]):
+                            return False  # Ada yang tidak sesuai
+                    except:
+                        return False  # Gagal memproses baris
     except FileNotFoundError:
-        print(f"File {requirements_file} tidak ditemukan.")
-        needs_install = True
+        return False  # File tidak ditemukan
 
-    return not needs_install
+    return True  # Semua sesuai
 
 if __name__ == "__main__":
-    if check_requirements():
-        return True
-    else:
-        return False
+    all_met = check_requirements()
+    print(all_met) # Untuk keperluan pengujian, Anda bisa mencetak hasilnya di sini
 
