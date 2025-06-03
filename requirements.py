@@ -54,6 +54,5 @@ if __name__ == "__main__":
     if check_requirements():
         return True
     else:
-        print("Beberapa requirements tidak terpenuhi atau versi tidak sesuai. Anda mungkin perlu menjalankan 'pip install -r requirements.txt'.")
         return False
 
